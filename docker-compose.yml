@@ -402,6 +402,20 @@ services:
       networks:
         - backend
 
+### Logstash ################################################
+    logstash:
+      build: ./logstash
+      networks:
+      - backend
+
+### Filebeat ################################################
+    filebeat:
+      build: ./filebeat
+      volumes:
+        - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
+      networks:
+        - backend
+
 ### Redis ################################################
     redis:
       build: ./redis
