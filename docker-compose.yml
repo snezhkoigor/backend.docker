@@ -407,6 +407,8 @@ services:
       build: ./logstash
       depends_on:
         - elasticsearch
+      volumes:
+        - ${LOGSTASH_CONFIG_PATH}:/usr/share/logstash/pipeline/
       ports:
         - "${LOGSTASH_HOST_PORT}:5959"
       networks:
