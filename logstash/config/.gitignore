@@ -1,2 +1,2 @@
 *.conf
-!example.conf
+!default.conf
