@@ -199,6 +199,10 @@ MYSQL_PORT=3306
 MYSQL_ROOT_PASSWORD=root
 MYSQL_ENTRYPOINT_INITDB=./mysql/docker-entrypoint-initdb.d
 
+### LOGSTASH ##############################################
+
+LOGSTASH_HOST_PORT=5959
+
 ### REDIS #################################################
 
 REDIS_PORT=6379

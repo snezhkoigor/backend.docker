@@ -405,8 +405,12 @@ services:
 ### Logstash ################################################
     logstash:
       build: ./logstash
+      depends_on:
+        - elasticsearch
+      ports:
+        - "${LOGSTASH_HOST_PORT}:5959"
       networks:
-      - backend
+        - backend
 
 ### Filebeat ################################################
     filebeat:
