@@ -416,7 +416,7 @@ services:
     metricbeat:
       build: ./metricbeat
       volumes:
-        - ${METRICBEAT_CONFIG_FILE_PATH}:/usr/share/metricbeat/metricbeat.yml
+        - ${DATA_PATH_HOST}/metricbeat:/usr/share/metricbeat/data
       networks:
         - backend
 
