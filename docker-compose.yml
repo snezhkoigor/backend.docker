@@ -426,7 +426,7 @@ services:
       volumes:
         - ${NGINX_HOST_LOG_PATH}:/var/log/nginx
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
-        - ${FILEBEAT_CONFIG_FILE_PATH}:/usr/share/filebeat/filebeat.yml
+        - ${DATA_PATH_HOST}/filebeat:/usr/share/filebeat/data
       networks:
         - backend
 
