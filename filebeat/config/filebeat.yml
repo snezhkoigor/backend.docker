@@ -1,0 +1,14 @@
+filebeat.inputs:
+  # nginx app logs
+  - type: log
+    document_type: nginx-access
+    tags: ["gateway:nginx:access"]
+    paths:
+      - /var/log/nginx/lumen_access.log
+
+output.redis:
+  hosts: ["XXX.XXX.XXX.XXX"]
+  password: "VeryStrongPAssword"
+  key: "filebeat"
+  db: 0
+  timeout: 5

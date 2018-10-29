@@ -1,2 +1,3 @@
 *.yml
-!example.yml
+!filebeat.yml
+!/prospectors.d/default.yml

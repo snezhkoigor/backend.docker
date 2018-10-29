@@ -418,6 +418,7 @@ services:
     filebeat:
       build: ./filebeat
       volumes:
+        - ${NGINX_HOST_LOG_PATH}:/var/log/nginx
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
         - ${FILEBEAT_CONFIG_FILE_PATH}:/usr/share/filebeat/filebeat.yml
       networks:
@@ -564,7 +565,7 @@ services:
       environment:
         - cluster.name=${ELASTICSEARCH_CLUSTER_NAME}
         - bootstrap.memory_lock=true
-        - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+        - "ES_JAVA_OPTS=-Xms${ELASTICSEARCH_ES_JAVA_OPTS} -Xmx${ELASTICSEARCH_ES_JAVA_OPTS}"
       ulimits:
         memlock:
           soft: -1
