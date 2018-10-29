@@ -199,19 +199,6 @@ MYSQL_PORT=3306
 MYSQL_ROOT_PASSWORD=root
 MYSQL_ENTRYPOINT_INITDB=./mysql/docker-entrypoint-initdb.d
 
-### METRICBEAT ##############################################
-
-METRICBEAT_CONFIG_FILE_PATH=./merticbeat/config/metricbeat.yml
-
-### FILEBEAT ##############################################
-
-FILEBEAT_CONFIG_FILE_PATH=./filebeat/config/filebeat.yml
-
-### LOGSTASH ##############################################
-
-LOGSTASH_HOST_PORT=5959
-LOGSTASH_CONFIG_FILES_PATH=./logstash/config
-
 ### REDIS #################################################
 
 REDIS_PORT=6379

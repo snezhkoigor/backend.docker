@@ -1,5 +1,5 @@
 FROM docker.elastic.co/logstash/logstash:6.2.3
 
-USER root
+COPY config/*.conf /usr/share/logstash/pipeline
 
-#RUN mkdir /usr/share/logstash/pipeline
+USER root
