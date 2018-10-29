@@ -407,8 +407,6 @@ services:
       build: ./logstash
       depends_on:
         - elasticsearch
-      volumes:
-        - ${DATA_PATH_HOST}/logstash:/usr/share/logstash/data
       networks:
         - backend
 
