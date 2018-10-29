@@ -1,6 +1,0 @@
-# nginx app logs
-- type: log
-  document_type: nginx-access
-  tags: ["gateway:nginx:access"]
-  paths:
-    - /var/log/nginx/access.log
