@@ -1,0 +1,21 @@
+metricbeat.modules:
+  - module: docker
+    metricsets:
+    - "container"
+    - "cpu"
+    - "diskio"
+    - "healthcheck"
+    - "info"
+    - "image"
+    - "memory"
+    - "network"
+    hosts: ["unix:///var/run/docker.sock"]
+    period: 10s
+    enabled: true
+
+output.redis:
+  hosts: ["104.248.244.33"]
+  #  password: null
+  key: "metricbeat"
+  db: 0
+  timeout: 5

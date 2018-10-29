@@ -412,6 +412,14 @@ services:
       networks:
         - backend
 
+### Metricbeat ################################################
+    metricbeat:
+      build: ./metricbeat
+      volumes:
+        - ${METRICBEAT_CONFIG_FILE_PATH}:/usr/share/metricbeat/metricbeat.yml
+      networks:
+        - backend
+
 ### Filebeat ################################################
     filebeat:
       build: ./filebeat

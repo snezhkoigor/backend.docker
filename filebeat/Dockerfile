@@ -1,10 +1,10 @@
 FROM docker.elastic.co/beats/filebeat:6.4.2
 
-#COPY config/filebeat.yml /usr/share/filebeat/filebeat.yml
-#
+COPY config/ /usr/share/filebeat/
+
 USER root
-#
-RUN chown root:filebeat /usr/share/filebeat/filebeat.yml
-RUN chmod go-w /usr/share/filebeat/filebeat.yml
-#
+
+RUN chown -R root:filebeat /usr/share/filebeat/
+RUN chmod -R go-w /usr/share/filebeat/
+
 USER filebeat
