@@ -8,7 +8,7 @@ RUN mkdir /usr/share/logstash/GeoIP
 
 RUN curl -LO "http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz" && \
     gunzip GeoLite2-City.mmdb.gz && \
-    mv GeoLite2-City.mmdb /usr/share/logstash/GeoIP
+    mv GeoLite2-City.mmdb /usr/share/logstash/GeoIP/GeoLite2-City.mmdb
 
 RUN chown -R root:root /usr/share/logstash/
 RUN chmod -R go-w /usr/share/logstash/
