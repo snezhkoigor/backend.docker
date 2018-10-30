@@ -405,6 +405,8 @@ services:
 ### Logstash ################################################
     logstash:
       build: ./logstash
+      volumes:
+        - /usr/share/GeoIP/:/usr/share/GeoIP/
       depends_on:
         - elasticsearch
       networks:
