@@ -415,6 +415,7 @@ services:
       build: ./metricbeat
       volumes:
         - ${DATA_PATH_HOST}/metricbeat:/usr/share/metricbeat/data
+        - /var/run/docker.sock:/var/run/docker.sock
       networks:
         - backend
 
