@@ -405,8 +405,6 @@ services:
 ### Logstash ################################################
     logstash:
       build: ./logstash
-      volumes:
-        - /usr/share/logstash:/usr/share/logstash
       depends_on:
         - elasticsearch
       networks:
