@@ -4,9 +4,11 @@ COPY config/*.conf /usr/share/logstash/pipeline/
 
 USER root
 
+RUN mkdir /usr/share/logstash/GeoIP
+
 RUN chown -R root:root /usr/share/logstash/
 RUN chmod -R go-w /usr/share/logstash/
 
 RUN curl -LO "http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz" && \
     gunzip GeoLite2-City.mmdb.gz && \
-    mv GeoLite2-City.mmdb /usr/share/GeoIP
+    mv GeoLite2-City.mmdb /usr/share/logstash/GeoIP
