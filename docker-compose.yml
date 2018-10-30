@@ -406,7 +406,7 @@ services:
     logstash:
       build: ./logstash
       volumes:
-        - /usr/share/logstash/GeoIP:/usr/share/logstash/GeoIP
+        - /usr/share/logstash/GeoIP/GeoLite2-City.mmdb:/usr/share/logstash/GeoIP/GeoLite2-City.mmdb
       depends_on:
         - elasticsearch
       networks:
