@@ -1,7 +1,6 @@
 FROM docker.elastic.co/logstash/logstash:6.2.3
 
 COPY config/*.conf /usr/share/logstash/pipeline/
-COPY conf.d/*.json /usr/share/logstash/conf.d/
 
 USER root
 
