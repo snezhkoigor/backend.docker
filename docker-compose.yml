@@ -279,8 +279,11 @@ services:
       build: ./elasticsearch
       volumes:
         - elasticsearch:/usr/share/elasticsearch/data
+        - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       environment:
+        - ELASTIC_PASSWORD=${ELASTICSEARCH_PASSWORD}
         - cluster.name=${ELASTICSEARCH_CLUSTER_NAME}
+        - node.name=${ELASTICSEARCH_NODE_NAME}
         - bootstrap.memory_lock=true
         - "ES_JAVA_OPTS=-Xms${ELASTICSEARCH_ES_JAVA_OPTS} -Xmx${ELASTICSEARCH_ES_JAVA_OPTS}"
       ulimits:
@@ -301,8 +304,14 @@ services:
       build: ./kibana
       ports:
         - "${KIBANA_HTTP_PORT}:5601"
-      depends_on:
-        - elasticsearch
+      environment:
+        - server.name=${KIBANA_HTTP}
+        - elasticsearch.url=${ELASTICSEARCH_HOST}
+        - elasticsearch.username=${ELASTICSEARCH_USER}
+        - elasticsearch.password=${ELASTICSEARCH_PASSWORD
+        - xpack.monitoring.ui.container.elasticsearch.enabled=${ELASTICSEARCH_XPACK_ENABLED}
+#      depends_on:
+#        - elasticsearch
       networks:
         - frontend
         - backend
