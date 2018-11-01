@@ -279,7 +279,6 @@ services:
       build: ./elasticsearch
       volumes:
         - elasticsearch:/usr/share/elasticsearch/data
-        - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       environment:
         - ELASTIC_PASSWORD=${ELASTICSEARCH_PASSWORD}
         - cluster.name=${ELASTICSEARCH_CLUSTER_NAME}
