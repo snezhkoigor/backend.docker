@@ -1,3 +1,3 @@
-#http.cors.enabled: true
-#http.cors.allow-origin: "*"
-#http.cors.allow-headers: "Authorization"
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+http.cors.allow-headers: "Authorization"
