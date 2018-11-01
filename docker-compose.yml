@@ -309,8 +309,8 @@ services:
         - elasticsearch.username=${ELASTICSEARCH_USER}
         - elasticsearch.password=${ELASTICSEARCH_PASSWORD}
         - xpack.monitoring.ui.container.elasticsearch.enabled=${ELASTICSEARCH_XPACK_ENABLED}
-#      depends_on:
-#        - elasticsearch
+      depends_on:
+        - elasticsearch
       networks:
         - frontend
         - backend
