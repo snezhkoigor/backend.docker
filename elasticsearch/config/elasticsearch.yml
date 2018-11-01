@@ -1,3 +1,5 @@
 http.cors.enabled: true
 http.cors.allow-origin: "*"
 http.cors.allow-headers: "Authorization"
+
+xpack.license.self_generated.type: basic
