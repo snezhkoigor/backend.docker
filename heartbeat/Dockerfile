@@ -1,4 +1,4 @@
-FROM docker.elastic.co/beats/heartbeat:7.0.0-alpha1
+FROM docker.elastic.co/beats/heartbeat:6.4.2
 
 COPY config/*.yml /usr/share/heartbeat/
 

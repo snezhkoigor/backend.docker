@@ -1,41 +1,64 @@
 packetbeat.interfaces.device: any
-packetbeat.fields_under_root: true
-packetbeat.fields:
-    app: "packetbeat-gateway"
-packetbeat.tags: ["packetbeat", "packetbeat-gateway"]
 
 packetbeat.flows:
   timeout: 30s
   period: 10s
 
-#packetbeat.protocols.dns:
-#  ports: [53]
-#  include_authorities: true
-#  include_additionals: true
+packetbeat.protocols:
+  - type: icmp
+    enabled: true
 
-packetbeat.protocols.http:
-  ports: [80, 8080]
+#  - type: dns
+#    ports: [53]
 
-#packetbeat.protocols.memcache:
-#  ports: [11211]
+  - type: http
+    ports: [80, 8080]
 
-#packetbeat.protocols.mysql:
-#  ports: [3306]
+#  - type: amqp
+#    ports: [5672]
 #
-#packetbeat.protocols.pgsql:
-#  ports: [5432]
-
-packetbeat.protocols.redis:
-  ports: [6379]
-
-#packetbeat.protocols.thrift:
-#  ports: [9090]
-
-#packetbeat.protocols.mongodb:
-#  ports: [27017]
+#  - type: cassandra
+#    ports: [9042]
 #
-#packetbeat.protocols.cassandra:
-#  ports: [9042]
+#  - type: memcache
+#    ports: [11211]
+#
+#  - type: mysql
+#    ports: [3306]
+
+  - type: redis
+    ports: [6379]
+
+#  - type: pgsql
+#    ports: [5432]
+#
+#  - type: thrift
+#    ports: [9090]
+#
+#  - type: tls
+#    ports: [443]
+
+packetbeat.procs:
+  enabled: true
+  monitored:
+#    - process: mysqld
+#      cmdline_grep: mysqld
+#
+#    - process: pgsql
+#      cmdline_grep: postgres
+
+    - process: nginx
+      cmdline_grep: nginx
+#
+#    - process: app
+#      cmdline_grep: gunicorn
+
+fields_under_root: true
+
+fields:
+  app: "gateway"
+
+tags: ["packetbeat", "gateway"]
 
 processors:
   - add_cloud_metadata:
