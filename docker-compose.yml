@@ -429,6 +429,22 @@ services:
       networks:
         - backend
 
+### Heartbeat ################################################
+    heartbeat:
+      build: ./heartbeat
+      volumes:
+        - ${DATA_PATH_HOST}/heartbeat:/usr/share/heartbeat/data
+      networks:
+        - backend
+
+### Packetbeat ################################################
+    packetbeat:
+      build: ./packetbeat
+      volumes:
+        - ${DATA_PATH_HOST}/packetbeat:/usr/share/packetbeat/data
+      networks:
+        - backend
+
 ### Redis ################################################
     redis:
       build: ./redis

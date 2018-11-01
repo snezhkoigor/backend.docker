@@ -1,0 +1,48 @@
+packetbeat.interfaces.device: any
+packetbeat.fields_under_root: true
+packetbeat.fields:
+    app: "packetbeat-gateway"
+packetbeat.tags: ["packetbeat", "packetbeat-gateway"]
+
+packetbeat.flows:
+  timeout: 30s
+  period: 10s
+
+#packetbeat.protocols.dns:
+#  ports: [53]
+#  include_authorities: true
+#  include_additionals: true
+
+packetbeat.protocols.http:
+  ports: [80, 8080]
+
+#packetbeat.protocols.memcache:
+#  ports: [11211]
+
+#packetbeat.protocols.mysql:
+#  ports: [3306]
+#
+#packetbeat.protocols.pgsql:
+#  ports: [5432]
+
+packetbeat.protocols.redis:
+  ports: [6379]
+
+#packetbeat.protocols.thrift:
+#  ports: [9090]
+
+#packetbeat.protocols.mongodb:
+#  ports: [27017]
+#
+#packetbeat.protocols.cassandra:
+#  ports: [9042]
+
+processors:
+  - add_cloud_metadata:
+
+output.redis:
+  hosts: ["104.248.244.33"]
+  #  password: null
+  key: "packetbeat"
+  db: 0
+  timeout: 5
