@@ -280,6 +280,8 @@ services:
       volumes:
         - elasticsearch:/usr/share/elasticsearch/data
       environment:
+        - http.host=${ELASTICSEARCH_HOST_HTTP}
+        - transport.host=${ELASTICSEARCH_HOST_TRANSPORT}
 #        - ELASTIC_PASSWORD=${ELASTICSEARCH_PASSWORD}
         - cluster.name=${ELASTICSEARCH_CLUSTER_NAME}
         - node.name=${ELASTICSEARCH_NODE_NAME}
