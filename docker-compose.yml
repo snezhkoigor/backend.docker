@@ -308,7 +308,7 @@ services:
         - server.name=${KIBANA_HTTP}
         - elasticsearch.url=${ELASTICSEARCH_HOST}
         - elasticsearch.username=${ELASTICSEARCH_USER}
-        - elasticsearch.password=${ELASTICSEARCH_PASSWORD
+        - elasticsearch.password=${ELASTICSEARCH_PASSWORD}
         - xpack.monitoring.ui.container.elasticsearch.enabled=${ELASTICSEARCH_XPACK_ENABLED}
 #      depends_on:
 #        - elasticsearch
