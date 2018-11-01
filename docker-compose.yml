@@ -280,7 +280,7 @@ services:
       volumes:
         - elasticsearch:/usr/share/elasticsearch/data
       environment:
-        - http.host=0.0.0.
+        - http.host=0.0.0.0
 #        - ELASTIC_PASSWORD=${ELASTICSEARCH_PASSWORD}
         - cluster.name=${ELASTICSEARCH_CLUSTER_NAME}
         - node.name=${ELASTICSEARCH_NODE_NAME}
