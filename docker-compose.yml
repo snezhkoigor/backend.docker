@@ -286,6 +286,7 @@ services:
         - cluster.name=${ELASTICSEARCH_CLUSTER_NAME}
         - node.name=${ELASTICSEARCH_NODE_NAME}
         - bootstrap.memory_lock=true
+        - xpack.security.enabled=${ELASTICSEARCH_XPACK_ENABLED}
         - "ES_JAVA_OPTS=-Xms${ELASTICSEARCH_ES_JAVA_OPTS} -Xmx${ELASTICSEARCH_ES_JAVA_OPTS}"
       ulimits:
         memlock:
@@ -308,7 +309,7 @@ services:
       environment:
         - elasticsearch.username=${ELASTICSEARCH_USER}
         - elasticsearch.password=${ELASTICSEARCH_PASSWORD}
-        - xpack.monitoring.ui.container.elasticsearch.enabled=${ELASTICSEARCH_XPACK_ENABLED}
+        - xpack.security.enabled=${ELASTICSEARCH_XPACK_ENABLED}
       depends_on:
         - elasticsearch
       networks:
