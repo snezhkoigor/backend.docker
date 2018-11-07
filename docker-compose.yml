@@ -255,9 +255,13 @@ services:
         - ${DATA_PATH_HOST}/redis:/data
       ports:
         - "${REDIS_PORT}:6379"
+      environment:
+        # - ALLOW_EMPTY_PASSWORD=${ALLOW_EMPTY_PASSWORD}
+        - REDIS_PASSWORD=${REDIS_PASSWORD}
+        - DISABLE_COMMANDS=${DISABLE_COMMANDS}
       networks:
         - backend
-        
+
 ### RabbitMQ #############################################
     rabbitmq:
       build: ./rabbitmq
