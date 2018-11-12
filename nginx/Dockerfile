@@ -24,4 +24,7 @@ RUN echo "upstream php-upstream { server ${PHP_UPSTREAM_CONTAINER}:${PHP_UPSTREA
 
 CMD ["nginx"]
 
+# Set laravel-swoole upstream
+RUN echo "upstream swoole-http { server workspace:1215; }" >> /etc/nginx/conf.d/upstream.conf
+
 EXPOSE 80 443

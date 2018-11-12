@@ -882,3 +882,6 @@ RUN apt-get clean && \
 
 # Set default work directory
 WORKDIR /var/www
+
+# Expose port for laravel-swoole
+EXPOSE 1215

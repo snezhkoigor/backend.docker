@@ -1,9 +1,24 @@
-FROM mongo:latest
+FROM mongo
 
-#COPY mongo.conf /usr/local/etc/mongo/mongo.conf
+MAINTAINER <Aashrey Sharma> aashreysh@gmail.com
 
-VOLUME /data/db /data/configdb
+# Auth Configuration. Modify as needed.
+# These environment variables can also be specified through command line or docker-compose configuration
+# ENV AUTH yes
 
-CMD ["mongod"]
+# ENV MONGODB_ADMIN_USER root
+# ENV MONGODB_ADMIN_PASS password
 
-EXPOSE 27017
+# ENV MONGODB_APPLICATION_DATABASE your_db
+# ENV MONGODB_APPLICATION_USER user
+# ENV MONGODB_APPLICATION_PASS password
+
+EXPOSE 27017 27017
+
+ADD run.sh /run.sh
+ADD set_mongodb_password.sh /set_mongodb_password.sh
+
+RUN chmod +x /run.sh
+RUN chmod +x /set_mongodb_password.sh
+
+CMD ["/run.sh"]
