@@ -97,8 +97,10 @@ RUN if [ ${INSTALL_SOAP} = true ]; then \
 ARG INSTALL_PGSQL=false
 
 RUN if [ ${INSTALL_PGSQL} = true ]; then \
-    # Install the pgsql extension
-    docker-php-ext-install pgsql \
+    # Install Postgre PDO
+    apt-get install -y libpq-dev \
+    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+    && docker-php-ext-install pdo pdo_pgsql pgsql \
 ;fi
 
 ###########################################################################
