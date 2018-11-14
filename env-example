@@ -57,11 +57,6 @@ PHP_IDE_CONFIG=serverName=mobilcard
 # A fix for Windows users, to ensure the application path works
 COMPOSE_CONVERT_WINDOWS_PATHS=1
 
-### Environment ###########################################
-
-# If you need to change the sources (i.e. to China), set CHANGE_SOURCE to true
-CHANGE_SOURCE=false
-
 ###########################################################
 ################ Containers Customization #################
 ###########################################################
@@ -146,14 +141,6 @@ POSTGRES_USER=default
 POSTGRES_PASSWORD=secret
 POSTGRES_PORT=5432
 POSTGRES_ENTRYPOINT_INITDB=./postgres/docker-entrypoint-initdb.d
-
-### RABBITMQ ##############################################
-
-RABBITMQ_NODE_HOST_PORT=5672
-RABBITMQ_MANAGEMENT_HTTP_HOST_PORT=15672
-RABBITMQ_MANAGEMENT_HTTPS_HOST_PORT=15671
-RABBITMQ_DEFAULT_USER=guest
-RABBITMQ_DEFAULT_PASS=guest
 
 ### ELASTICSEARCH #########################################
 
