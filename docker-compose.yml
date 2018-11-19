@@ -92,14 +92,11 @@ services:
         - "dockerhost:${DOCKER_HOST_IP}"
       environment:
         - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
-        - DOCKER_HOST=tcp://docker-in-docker:2375
         - FAKETIME=${PHP_FPM_FAKETIME}
       depends_on:
         - workspace
       networks:
         - backend
-      links:
-        - docker-in-docker
 
 ### PHP Worker ############################################
     php-worker:
@@ -249,22 +246,6 @@ services:
       networks:
         - backend
 
-### RabbitMQ #############################################
-    rabbitmq:
-      build: ./rabbitmq
-      ports:
-        - "${RABBITMQ_NODE_HOST_PORT}:5672"
-        - "${RABBITMQ_MANAGEMENT_HTTP_HOST_PORT}:15672"
-        - "${RABBITMQ_MANAGEMENT_HTTPS_HOST_PORT}:15671"
-      privileged: true
-      environment:
-        - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
-        - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
-      depends_on:
-        - php-fpm
-      networks:
-        - backend
-
 ### ElasticSearch ########################################
     elasticsearch:
       build: ./elasticsearch
@@ -320,15 +301,4 @@ services:
         - MINIO_SECRET_KEY=secretkey
       networks:
         - frontend
-        - backend
-
-### Docker-in-Docker ################################################
-    docker-in-docker:
-      image: docker:dind
-      privileged: true
-      volumes:
-        - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
-      expose:
-        - 2375
-      networks:
         - backend
